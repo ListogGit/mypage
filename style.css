@@ -1,0 +1,338 @@
+body {
+font-family: 'Arial', sans-serif;
+margin: 0;
+padding: 0;
+color: #333; 
+}
+.navig {
+width: 90%;
+max-width: 1200px;
+margin: 0 auto; 
+
+}
+header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px 0;
+width: 100%;
+}
+.logo {
+font-size: 24px;
+font-weight: bold;
+color: #FF6B6B;
+}
+nav a {
+margin: 0 15px;
+text-decoration: none;
+color: #333;
+}
+.order-btn {
+background: #FF6B6B;
+color: white;
+padding: 10px 20px;
+border-radius: 5px;
+border: none;
+cursor: pointer;
+}
+.hero {
+z-index: 1;
+overflow: hidden;
+position: relative;
+padding: 50px 0;
+background-image: url(./Imgs/orange_bg.png);
+}
+.hero h1 {
+font-size: 48px;
+ margin-bottom: 20px;
+}
+.hero p {
+font-size: 18px;
+margin-bottom: 30px;
+}
+.food-menu {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
+padding: 50px 0;
+}
+.food-card {
+width: 250px;
+border: 1px solid #ddd;
+border-radius: 10px;
+overflow: hidden;
+text-align: center;
+}
+.food-card img {
+width: 100%;
+height: 180px;
+object-fit: cover;
+}
+.food-card h3 {
+margin: 15px 0;
+}
+.food-card .price {
+color: #FF6B6B;
+font-weight: bold;
+margin-bottom: 15px;
+}
+.deliver{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    user-select: none;
+    position: relative;
+}
+.spisok{
+z-index: 100;
+position: absolute;
+left: 0;
+top: 100%;
+margin-top: 5px;
+background: white;     
+border-radius: 12px;    
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); 
+padding: 20px;           
+width: 300px;       
+}
+.input-style {
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px; 
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s; 
+  width: 100%;
+  max-width: 200px;
+}
+.submit_but{
+    height: 40px;
+    width: 40px;
+    background-image: url(./Imgs/orange_bg.png);
+    margin-left: 15px;
+    border-radius: 10%;
+}
+.hero_food{
+      position: absolute;
+  bottom: 0; 
+  left: 60%; 
+  margin-bottom: -5%;
+  height: auto;
+}
+.top{
+  width: 856;
+height: 86;
+gap: 8px;
+padding: 24px;
+
+}
+.search-container {
+display: flex;
+max-width: 500px;
+margin: 20px auto;
+}   
+.input-wrapper {
+position: relative;
+flex-grow: 1;
+}
+.email-input {
+width: 100%;
+padding: 12px 45px 12px 40px;
+border: none;
+border-radius: 8px;
+background-color: #cccccc5d;
+font-size: 16px;
+box-sizing: border-box;
+}
+.location-icon {
+position: absolute;
+left: 15px;
+top: 50%;
+transform: translateY(-60%);
+width: 15px;
+height: 20px;
+}
+.search-button {
+gap: 5px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-left: 10px;
+padding: 0 20px;
+border: none;
+border-radius: 8px;
+background: linear-gradient(to right, #FF8C00, #FF6B00);
+color: white;
+font-weight: bold;
+font-size: 16px;
+cursor: pointer;
+transition: all 0.3s ease;
+}  
+.search-button:hover {
+background: linear-gradient(to right, #FF6B00, #FF4500);
+}
+.search-icon {
+margin-left: 8px;
+width: 16px;
+height: 16px;
+}
+.Uveda {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+    animation: fadeIn 0.3s;
+}
+
+.Uveda-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Uveda-text {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.Uveda-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(20px); }
+}
+html {
+scroll-behavior: smooth; 
+}
+body {
+font-family: Arial, sans-serif;
+background-color: #f5f5f5;
+margin: 0;
+padding: 0;
+}
+
+.container {
+max-width: 800px;
+margin: 0 auto;
+padding: 20px;
+}
+
+.header {
+text-align: center;
+margin-bottom: 20px;
+}
+
+.steps {
+display: flex;
+justify-content: space-around;
+margin-bottom: 40px;
+}
+
+.step {
+text-align: center;
+}
+
+.step i {
+font-size: 50px;
+color: #ff9900;
+margin-bottom: 10px;
+}
+body {
+font-family: Arial, sans-serif;
+background-color: #f5f5f5;
+margin: 0;
+padding: 0;
+}
+
+.containerfood {
+max-width: 800px;
+margin: 0 auto;
+padding: 20px;
+}
+
+.header {
+text-align: center;
+margin-bottom: 20px;
+}
+
+.items {
+display: flex;
+justify-content: space-around;
+margin-bottom: 40px;
+}
+
+.item {
+text-align: center;
+justify-content: space-between;
+width: 180px;
+}
+
+.item img {
+width: 100%;
+height: auto;
+margin-bottom: 10px;
+}
+
+.item button {
+background-color: #F17228;
+border: 2px solid transparent;  
+border-radius: 6px;  
+color: white;
+border: none;
+padding: 10px 20px;
+cursor: pointer;
+margin-top: 10px;
+}
+
+.navigation {
+display: flex;
+justify-content: space-between;
+margin-top: 20px;
+}
+
+.navigation button {
+background-color: #F17228;
+color: white;
+border: none;
+padding: 10px 20px;
+cursor: pointer;
+}
+
+.item p5 {
+color: #FFB30E;
+justify-content: space-between;
+}
+.left-arrow {
+top: 50%;
+margin-left: 350px;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+}
+
+.right-arrow {
+top: 50%;
+margin-left: 1000px;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+background-image: url('./Imgs/strelkaprava.png');
+}
