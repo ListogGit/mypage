@@ -1,143 +1,637 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Доставка еды</title>
-    <link rel="icon" href="./Imgs/burga.png">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <title>MicrophoneIndustries - Профессиональные микрофоны</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 1.8rem;
+            color: #4cc9f0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: #4cc9f0;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #4cc9f0;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #3aa8d0;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: #1a1a2e;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-img {
+            height: 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #4cc9f0;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+        
+        .product-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .features {
+            background-color: #f9f9f9;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #4cc9f0;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        footer {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: #4cc9f0;
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            color: #aaa;
+        }
+        
+        /* Страницы */
+        .page {
+            display: none;
+            padding: 2rem 0;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .about-content, .products-content, .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-content p, .products-content p, .contact-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            background-color: #f0f0f0;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div id="Uveda" class="Uveda">
-        <div class="Uveda-content">
-            <span class="Uveda-text">Технические шоколадки</span>
-            <img class="Uveda-image" src="./Imgs/kotekk.jpeg" >
-        </div>
-    </div>
-    <header class="navig">
-        <div class="logo">
-            <img src="./Imgs/Logo (1).png">
-        </div>
-        <div class="deliver">
-        <a style="margin-top: 1%;">Доставка:</a> 
-            <div onclick="toggleSpisok()" onmouseenter="TextOn()" onmouseleave="TextOff()" style="width: 250px;">
-                <img src="./Imgs/map-marker-alt.png" alt="">
-                <a id="spisok_text">Мухосранск, Подворотня 4</a>
-            </div>   
-            <div class="spisok" style="display: none;" id="spisok">
-                <input type="text" class="input-style" id="input_F" maxlength="25">
-                <div class="submit_but" onclick="submit_but()" id="submit_but">
-                    <img src="./Imgs/ok.png" style="height: 40px;">
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🎤</div>
+                    <h1>MicrophoneIndustries</h1>
                 </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">Главная</a></li>
+                        <li><a href="#" class="nav-link" data-page="about">О компании</a></li>
+                        <li><a href="#" class="nav-link" data-page="products">Продукты</a></li>
+                        <li><a href="#" class="nav-link" data-page="contact">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главная страница -->
+    <section id="home" class="page active">
+        <div class="hero">
+            <div class="container">
+                <h2>Профессиональные микрофоны для любого применения</h2>
+                <p>MicrophoneIndustries предлагает инновационные решения для звукозаписи, трансляций и живых выступлений. Наша продукция используется ведущими студиями и артистами по всему миру.</p>
+                <a href="#" class="btn nav-link" data-page="products">Смотреть продукты</a>
             </div>
         </div>
 
-    </header>
-    <section class="hero" style="display: flex;">
-        <div class="container" style="margin-left: 10%;">
-            <h1 style="color: aliceblue;font-size: 100px;">Вы готовы?</h1>
-            <p style="font-size: 30px;">Всего несколько кликов до вашего заказа</p>
-            <div style="width: 800px;height: 200px;background-color: aliceblue;border-radius: 30px;">
-                <div class="top" style="display: flex;align-items: center;gap: 50px;padding: 10px;border-bottom:1px solid #aaa5a5;height: 60px;">
-                    <div style="width: 140px;height: 40px;background-color: #f56d1f70;border-radius: 6px;align-items: center;display: flex;gap: 5px;">
-                        <img src="./Imgs/Moto_orng.png" style="filter: grayscale(100%);margin-left: 20px;">
-                        <a style="color: gray;font-weight: bolder;">Доставка</a>
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Наши продукты</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-img">🎤</div>
+                        <div class="product-info">
+                            <h3>Studio Pro X1</h3>
+                            <p>Студийный конденсаторный микрофон с премиальным звучанием для профессиональной записи.</p>
+                            <a href="#" class="btn">Подробнее</a>
+                        </div>
                     </div>
-                    <div>
-                        <img src="./Imgs/bag.svg">
-                        <a style="color: gray;font-weight: bolder;">Самовывоз</a>
-                    </div>    
+                    <div class="product-card">
+                        <div class="product-img">🎙️</div>
+                        <div class="product-info">
+                            <h3>Live Performance L2</h3>
+                            <p>Динамический микрофон для живых выступлений с повышенной защитой от обратной связи.</p>
+                            <a href="#" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img">📹</div>
+                        <div class="product-info">
+                            <h3>StreamCast S3</h3>
+                            <p>USB-микрофон для стриминга и подкастинга с простой настройкой и чистым звуком.</p>
+                            <a href="#" class="btn">Подробнее</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="bottom">
- <div class="search-container">
-        <div class="input-wrapper">
-            <img src="./Imgs/map-marker-alt.png" alt="Геолокация" class="location-icon">
-            <input type="email" class="email-input" placeholder="Введите ваш Email" id="inputT">
-        </div>
-        <button class="search-button" id="searchButton" onclick="hihanke()">
-            <img src="./Imgs/lupa.png" alt="Поиск" class="search-icon">
-                        Найти
-        </button>
-    </div>
+            </div>
+
+            <div class="section features">
+                <h2 class="section-title">Почему выбирают нас</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🔊</div>
+                        <h3>Высокое качество звука</h3>
+                        <p>Наши микрофоны обеспечивают кристально чистый звук без искажений.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔧</div>
+                        <h3>Надежность</h3>
+                        <p>Продукция проходит строгий контроль качества и тестирование в различных условиях.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💡</div>
+                        <h3>Инновации</h3>
+                        <p>Мы постоянно совершенствуем технологии для достижения лучших результатов.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Глобальная поддержка</h3>
+                        <p>Наши сервисные центры работают по всему миру для быстрого решения вопросов.</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <img src="./Imgs/hero_food.png" style="height: 600px;"class="hero_food">
     </section>
-</body>
-<body>
-    <div class="container">
-        <div class="header">
-            <h2>Как это работает?</h2>
-        </div>
-        <div class="steps">
-            <div class="step">
-                 <img src="./Imgs/menu.png" style="height: 112px;width: 87px;" class="menuu">
-                <h3>Доставка</h3>
-                <p>Выберите локацию куда доставить заказ</p>
-            </div>
-            <div class="step">
-                <img src="./Imgs/location.png" style="height: 112px;width: 87px;" class="menuu">
-                <h3>Выберите заказ</h3>
-                <p>Ознакомьтесь с вариантами блюд, чтобы выбрать любимое блюдо.</p>
-            </div>
-            <div class="step">
-                <img src="./Imgs/dolar.png" style="height: 112px;width: 100px;" class="menuu">
-                <h3>Оплата картой</h3>
-                <p>Это быстро, безопасно ипросто. Выберите несколько способов оплаты.</p>
-            </div>
-            <div class="step">
-                <img src="./Imgs/donut.png" style="height: 112px;width: 112px;" class="menuu">
-                <h3>Наслаждайтесь заказом</h3>
-                <p>Еда будет приготовлена ​​и доставлена</p>
-            </div>
-        </div>
-    </div>
-</body>
-<body>
-    <div class="containerfood">
-        <div class="header">
-            <h2>Популярные блюда</h2>
-        </div>
-    
-        <div class="items">
-            <div class="item">
-                <img src="./Imgs/burh.png" alt="Cheeseburger">
-                <h3>бургер</h3>
-                <p5>Burger Arena</p5>
-                <p6>$3.80</p6>
-                <button class="order-button">Заказать!</button class="order-button">
-            </div>
-            <div class="item">
-                <img src="./Imgs/pankaka.png" alt="Toffee Cake">
-                <h3>блинчеки</h3>
-                <p5>Top Sticks</p5>
-                <p6>$4.00</p6>
-                <button class="order-button">Заказать!</button class="order-button">
-            </div>
-            <div class="item">
-                <img src="./Imgs/pankaka2.png" alt="Danish">
-                <h3>блинчики с маслоим</h3>
-                <p5>Cake World</p5>
-                <p6>$1.99</p6>
-                <button class="order-button">Заказать!</button class="order-button">
-            </div>
-            <div class="item">
-                <img src="./Imgs/buter.png" alt="Sandwich">
-                <h3>сэндвич</h3>
-                <p5>Fast Food Line</p5>
-                <p6>$3.00</p6>
-                <button class="order-button">Заказать!</button class="order-button">
-            </div>
-            <div class="item">
-                <img src="./Imgs/sup.png" alt="Thai Soup">
-                <h3>суп</h3>
-                <p5>Hotty Man</p5>
-                <p6>$2.79</p6>
-                <button class="order-button">Заказать!</button class="order-button">
+
+    <!-- Страница "О компании" -->
+    <section id="about" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">О компании</h2>
+                <div class="about-content">
+                    <p>MicrophoneIndustries была основана в 2010 году группой инженеров-акустиков с целью создания микрофонов, которые превосходят существующие на рынке продукты по качеству звука и надежности.</p>
+                    <p>За более чем десятилетие работы мы выросли из небольшой мастерской в международную компанию с представительствами в 15 странах. Наша продукция используется ведущими звукозаписывающими студиями, телеканалами и артистами мирового уровня.</p>
+                    <p>Мы гордимся тем, что наши технологии защищены 25 патентами, а наши инженеры продолжают исследования в области акустики для создания еще более совершенных продуктов.</p>
+                    
+                    <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Наша команда</h3>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div style="background-color: #4cc9f0; width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1rem;"></div>
+                            <h4>Алексей Петров</h4>
+                            <p>Главный инженер</p>
+                        </div>
+                        <div class="team-member">
+                            <div style="background-color: #4cc9f0; width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1rem;"></div>
+                            <h4>Мария Сидорова</h4>
+                            <p>Директор по разработке</p>
+                        </div>
+                        <div class="team-member">
+                            <div style="background-color: #4cc9f0; width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1rem;"></div>
+                            <h4>Дмитрий Иванов</h4>
+                            <p>Глава отдела качества</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Страница "Продукты" -->
+    <section id="products" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Наша продукция</h2>
+                <div class="products-content">
+                    <p>MicrophoneIndustries предлагает широкий ассортимент микрофонов для различных применений: от профессиональной студийной записи до живых выступлений и стриминга.</p>
+                    
+                    <div class="products-grid" style="margin-top: 2rem;">
+                        <div class="product-card">
+                            <div class="product-img">🎤</div>
+                            <div class="product-info">
+                                <h3>Studio Pro X1</h3>
+                                <p>Студийный конденсаторный микрофон с большой мембраной. Идеален для записи вокала, акустических инструментов и создания подкастов.</p>
+                                <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                                    <li>Частотный диапазон: 20Hz - 20kHz</li>
+                                    <li>Чувствительность: 15mV/Pa</li>
+                                    <li>Тип подключения: XLR</li>
+                                </ul>
+                                <a href="#" class="btn">Купить сейчас</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-img">🎙️</div>
+                            <div class="product-info">
+                                <h3>Live Performance L2</h3>
+                                <p>Профессиональный динамический микрофон для сцены. Обладает повышенной защитой от обратной связи и прочным корпусом.</p>
+                                <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                                    <li>Частотный диапазон: 50Hz - 16kHz</li>
+                                    <li>Чувствительность: 2.5mV/Pa</li>
+                                    <li>Тип подключения: XLR</li>
+                                </ul>
+                                <a href="#" class="btn">Купить сейчас</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-img">📹</div>
+                            <div class="product-info">
+                                <h3>StreamCast S3</h3>
+                                <p>USB-микрофон для стримеров и создателей контента. Простая настройка, встроенный поп-фильтр и регулируемая подставка.</p>
+                                <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                                    <li>Частотный диапазон: 20Hz - 20kHz</li>
+                                    <li>Разрешение: 24-bit/96kHz</li>
+                                    <li>Тип подключения: USB-C</li>
+                                </ul>
+                                <a href="#" class="btn">Купить сейчас</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Страница "Контакты" -->
+    <section id="contact" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Свяжитесь с нами</h2>
+                <div class="contact-content">
+                    <p>Мы всегда рады услышать ваши вопросы, отзывы и предложения. Свяжитесь с нами любым удобным способом.</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h3>Адрес</h3>
+                            <p>г. Москва, ул. Звуковая, д. 15</p>
+                            <p>Бизнес-центр "Акустика"</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Телефон</h3>
+                            <p>+7 (495) 123-45-67</p>
+                            <p>Пн-Пт: 9:00 - 18:00</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Email</h3>
+                            <p>info@microphoneindustries.ru</p>
+                            <p>support@microphoneindustries.ru</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form" style="margin-top: 3rem;">
+                        <h3 style="text-align: center; margin-bottom: 1.5rem;">Форма обратной связи</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Ваше имя</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Тема</label>
+                                <input type="text" id="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Сообщение</label>
+                                <textarea id="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn" style="width: 100%;">Отправить сообщение</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <div class="logo-icon">🎤</div>
+                    <h1>MicrophoneIndustries</h1>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="nav-link" data-page="home">Главная</a>
+                    <a href="#" class="nav-link" data-page="about">О компании</a>
+                    <a href="#" class="nav-link" data-page="products">Продукты</a>
+                    <a href="#" class="nav-link" data-page="contact">Контакты</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 MicrophoneIndustries. Все права защищены.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Навигация между страницами
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            
+            // Функция для переключения страниц
+            function showPage(pageId) {
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                document.getElementById(pageId).classList.add('active');
+            }
+            
+            // Обработчики для навигационных ссылок
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    showPage(pageId);
+                    
+                    // Прокрутка к верху страницы
+                    window.scrollTo(0, 0);
+                });
+            });
+            
+            // Обработчик для формы обратной связи
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
 </body>
 </html>
