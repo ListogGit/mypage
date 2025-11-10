@@ -3,10 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Доставка еды</title>
+    <link rel="icon" href="./Imgs/burga.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>ПУСТО</h1>
-    <h2>test</h2>
+    <div id="Uveda" class="Uveda">
+        <div class="Uveda-content">
+            <span class="Uveda-text">Технические шоколадки</span>
+            <img class="Uveda-image" src="./Imgs/kotekk.jpeg" >
+        </div>
+    </div>
+    <header class="navig">
+        <div class="logo">
+            <img src="./Imgs/Logo (1).png">
+        </div>
+        <div class="deliver">
+        <a style="margin-top: 1%;">Доставка:</a> 
+            <div onclick="toggleSpisok()" onmouseenter="TextOn()" onmouseleave="TextOff()" style="width: 250px;">
+                <img src="./Imgs/map-marker-alt.png" alt="">
+                <a id="spisok_text">Мухосранск, Подворотня 4</a>
+            </div>   
+            <div class="spisok" style="display: none;" id="spisok">
+                <input type="text" class="input-style" id="input_F" maxlength="25">
+                <div class="submit_but" onclick="submit_but()" id="submit_but">
+                    <img src="./Imgs/ok.png" style="height: 40px;">
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <section class="hero" style="display: flex;">
+        <div class="container" style="margin-left: 10%;">
+            <h1 style="color: aliceblue;font-size: 100px;">Вы готовы?</h1>
+            <p style="font-size: 30px;">Всего несколько кликов до вашего заказа</p>
+            <div style="width: 800px;height: 200px;background-color: aliceblue;border-radius: 30px;">
+                <div class="top" style="display: flex;align-items: center;gap: 50px;padding: 10px;border-bottom:1px solid #aaa5a5;height: 60px;">
+                    <div style="width: 140px;height: 40px;background-color: #f56d1f70;border-radius: 6px;align-items: center;display: flex;gap: 5px;">
+                        <img src="./Imgs/Moto_orng.png" style="filter: grayscale(100%);margin-left: 20px;">
+                        <a style="color: gray;font-weight: bolder;">Доставка</a>
+                    </div>
+                    <div>
+                        <img src="./Imgs/bag.svg">
+                        <a style="color: gray;font-weight: bolder;">Самовывоз</a>
+                    </div>    
+                </div>
+                <div class="bottom">
+ <div class="search-container">
+        <div class="input-wrapper">
+            <img src="./Imgs/map-marker-alt.png" alt="Геолокация" class="location-icon">
+            <input type="email" class="email-input" placeholder="Введите ваш Email" id="inputT">
+        </div>
+        <button class="search-button" id="searchButton" onclick="hihanke()">
+            <img src="./Imgs/lupa.png" alt="Поиск" class="search-icon">
+                        Найти
+        </button>
+    </div>
+                </div>
+            </div>
+        </div>
+        <img src="./Imgs/hero_food.png" style="height: 600px;"class="hero_food">
+    </section>
+</body>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Как это работает?</h2>
+        </div>
+        <div class="steps">
+            <div class="step">
+                 <img src="./Imgs/menu.png" style="height: 112px;width: 87px;" class="menuu">
+                <h3>Доставка</h3>
+                <p>Выберите локацию куда доставить заказ</p>
+            </div>
+            <div class="step">
+                <img src="./Imgs/location.png" style="height: 112px;width: 87px;" class="menuu">
+                <h3>Выберите заказ</h3>
+                <p>Ознакомьтесь с вариантами блюд, чтобы выбрать любимое блюдо.</p>
+            </div>
+            <div class="step">
+                <img src="./Imgs/dolar.png" style="height: 112px;width: 100px;" class="menuu">
+                <h3>Оплата картой</h3>
+                <p>Это быстро, безопасно ипросто. Выберите несколько способов оплаты.</p>
+            </div>
+            <div class="step">
+                <img src="./Imgs/donut.png" style="height: 112px;width: 112px;" class="menuu">
+                <h3>Наслаждайтесь заказом</h3>
+                <p>Еда будет приготовлена ​​и доставлена</p>
+            </div>
+        </div>
+    </div>
+</body>
+<body>
+    <div class="containerfood">
+        <div class="header">
+            <h2>Популярные блюда</h2>
+        </div>
+    
+        <div class="items">
+            <div class="item">
+                <img src="./Imgs/burh.png" alt="Cheeseburger">
+                <h3>бургер</h3>
+                <p5>Burger Arena</p5>
+                <p6>$3.80</p6>
+                <button class="order-button">Заказать!</button class="order-button">
+            </div>
+            <div class="item">
+                <img src="./Imgs/pankaka.png" alt="Toffee Cake">
+                <h3>блинчеки</h3>
+                <p5>Top Sticks</p5>
+                <p6>$4.00</p6>
+                <button class="order-button">Заказать!</button class="order-button">
+            </div>
+            <div class="item">
+                <img src="./Imgs/pankaka2.png" alt="Danish">
+                <h3>блинчики с маслоим</h3>
+                <p5>Cake World</p5>
+                <p6>$1.99</p6>
+                <button class="order-button">Заказать!</button class="order-button">
+            </div>
+            <div class="item">
+                <img src="./Imgs/buter.png" alt="Sandwich">
+                <h3>сэндвич</h3>
+                <p5>Fast Food Line</p5>
+                <p6>$3.00</p6>
+                <button class="order-button">Заказать!</button class="order-button">
+            </div>
+            <div class="item">
+                <img src="./Imgs/sup.png" alt="Thai Soup">
+                <h3>суп</h3>
+                <p5>Hotty Man</p5>
+                <p6>$2.79</p6>
+                <button class="order-button">Заказать!</button class="order-button">
+            </div>
+        </div>
+    </div>
 </body>
 </html>
